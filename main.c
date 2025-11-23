@@ -21,9 +21,9 @@ int main()
 		else if (lobby_choice == 3)
 		{
 			printf("게임 종료");
+			running = 0;
 		}
 	}
-	
 
 	return 0;
 }
