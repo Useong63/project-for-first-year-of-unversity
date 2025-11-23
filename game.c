@@ -25,6 +25,7 @@ int looking_shelf_free_1 = 0;
 int looking_door_free_1 = 0;
 int first_free_1 = 1;
 int again_window_free_1 = 0;
+int opened_window_1 = 0;
 int again_table_free_1 = 0;
 int have_driver = 0;
 int again_shelf_free_1 = 0;
@@ -53,6 +54,7 @@ void game_init(void)
 	looking_door_free_1 = 0;
 	first_free_1 = 1;
 	again_window_free_1 = 0;
+	opened_window_1 = 0;
 	again_table_free_1 = 0;
 	have_driver = 0;
 	again_shelf_free_1 = 0;
@@ -144,7 +146,7 @@ void game_start(void)
 							printf("나: 그래도 일어서서 주변을 수색할 수는 있겠어\n");
 							Sleep(delay);
 						}
-						printf("한 벽면에는 철창으로 막혀있는 창이 있다\n");
+						printf("한 벽면에는 철창으로 막혀있는 환풍구가 있다\n");
 						Sleep(delay);
 						printf("창고 구석에는 테이블이 있다\n");
 						Sleep(delay);
@@ -153,7 +155,7 @@ void game_start(void)
 						printf("벽면에 문이 있다\n");
 						Sleep(delay);
 						printf("\n내가 뭘 할 수 있지..?\n");
-						printf("1. 철창을 확인한다\n");
+						printf("1. 환풍구를 확인한다\n");
 						printf("2. 테이블을 확인한다\n");
 						printf("3. 선반을 확인한다\n");
 						printf("4. 문을 확인한다\n");
@@ -177,12 +179,12 @@ void game_start(void)
 								printf("나: 그나저나 손발이 묶여 있어서 제대로 움직일 수가 없어\n");
 								printf("나: 그래도 일어서서 주변을 수색할 수는 있겠어\n");
 							}
-							printf("한 벽면에는 철창으로 막혀있는 창이 있다\n");
+							printf("한 벽면에는 철창으로 막혀있는 환풍구가 있다\n");
 							printf("창고 구석에는 테이블이 있다\n");
 							printf("다른 한 편에는 여러가지 물건들이 있는 선반이 있다\n");
 							printf("벽면에 문이 있다\n");
 							printf("\n내가 뭘 할 수 있지..?\n");
-							printf("1. 철창을 확인한다\n");
+							printf("1. 환풍구를 확인한다\n");
 							printf("2. 테이블을 확인한다\n");
 							printf("3. 선반을 확인한다\n");
 							printf("4. 문을 확인한다\n");
@@ -223,6 +225,8 @@ void game_start(void)
 						Sleep(delay);
 						printf("나: 지금은 손이 묶여 있어서 뭘 할 수도 없어\n");
 						Sleep(delay);
+						printf("나: 철창을 때어낸다 해도 내가 들어가기엔 너무 좁아");
+						Sleep(delay);
 						printf("\n내가 뭘 할 수 있지..?\n");
 						printf("1. 돌아가기\n");
 						printf("2. 로비로 이동\n");
@@ -238,6 +242,7 @@ void game_start(void)
 							}
 							printf("나: 철창으로 막혀있어\n");
 							printf("나: 지금은 손이 묶여 있어서 뭘 할 수도 없어\n");
+							printf("나: 철창을 때어낸다 해도 내가 들어가기엔 너무 좁아");
 							printf("\n내가 뭘 할 수 있지..?\n");
 							printf("1. 돌아가기\n");
 							printf("2. 로비로 이동\n");
@@ -468,10 +473,6 @@ void game_start(void)
 							Sleep(delay);
 							printf("나: 흠.. 밧줄로 묶여있는 상자가 하나 있어\n");
 							Sleep(delay);
-							printf("나: 이건 카드.. 인가? 트럼프 카드네\n");
-							Sleep(delay);
-							printf("나: 다이아몬드 9라.. 쓸모가 있을지는 모르겠어\n");
-							Sleep(delay);
 							printf("나: 다른 상자들도 몇개 있는데 잠겨있진 않은 것 같아\n");
 							Sleep(delay);
 							printf("나: 티슈도 있고 물병같은 것도 있네\n");
@@ -480,8 +481,6 @@ void game_start(void)
 						printf("나: 이 선반에서 쓸만해 보이건\n");
 						Sleep(delay);
 						printf("나: 밧줄로 묶여있는 상자\n");
-						Sleep(delay);
-						printf("나: 다이아몬드 9 카드\n");
 						Sleep(delay);
 						printf("나: 잠겨있지 않은 여러 상자정도인가?\n");
 						Sleep(delay);
@@ -504,14 +503,11 @@ void game_start(void)
 							{
 								printf("나: 선반에는 생각보다 물건이 없어\n");
 								printf("나: 흠.. 밧줄로 묶여있는 상자가 하나 있어\n");
-								printf("나: 이건 카드.. 인가? 트럼프 카드네\n");
-								printf("나: 다이아몬드 9라.. 쓸모가 있을지는 모르겠어\n");
 								printf("나: 다른 상자들도 몇개 있는데 잠겨있진 않은 것 같아\n");
 								printf("나: 티슈도 있고 물병같은 것도 있네\n");
 							}
 							printf("나: 이 선반에서 쓸만해 보이건\n");
 							printf("나: 밧줄로 묶여있는 상자\n");
-							printf("나: 다이아몬드 9 카드\n");
 							printf("나: 잠겨있지 않은 여러 상자정도인가?\n");
 							printf("니: 손이 묶여있는 상태로는 할 수 있는게 없어\n");
 							printf("\n내가 뭘 할 수 있지..?\n");
@@ -687,7 +683,7 @@ void game_start(void)
 						printf("벽면에 문이 있다\n");
 						Sleep(delay);
 						printf("\n내가 뭘 할 수 있지..?\n");
-						printf("1. 철창을 확인한다\n");
+						printf("1. 환풍구를 확인한다\n");
 						printf("2. 테이블을 확인한다\n");
 						printf("3. 선반을 확인한다\n");
 						printf("4. 문을 확인한다\n");
@@ -713,7 +709,7 @@ void game_start(void)
 							printf("다른 한 편에는 여러가지 물건들이 있는 선반이 있다\n");
 							printf("벽면에 문이 있다\n");
 							printf("\n내가 뭘 할 수 있지..?\n");
-							printf("1. 철창을 확인한다\n");
+							printf("1. 환풍구를 확인한다\n");
 							printf("2. 테이블을 확인한다\n");
 							printf("3. 선반을 확인한다\n");
 							printf("4. 문을 확인한다\n");
@@ -970,46 +966,211 @@ void game_start(void)
 							}
 							else if (have_driver == 1)
 							{
-								printf("나: 이 드라이버로 철창을 빼낼 수 있을거야\n");
-								Sleep(delay);
-								printf("\n내가 뭘 할 수 있지..?\n");
-								printf("1. 돌아가기\n");
-								printf("2. 드라이버로 철창을 빼내기\n");
-								printf("3. 로비로 이동\n");
-								printf("내가 지금 뭘 생각하고 있는거야..: 소리가 나지 않게 조심히..\n");
-								printf("나는 뭘 해야하지..?: ");
-								scanf("%d", &ingame_choice);
-
-								while (ingame_choice != 1 && ingame_choice != 2 && ingame_choice != 3)
+								if (again_window_free_1 == 1)
 								{
-									for (int i = 0; i < 50; i++)
-									{
-										printf("\n");
-									}
 									printf("나: 이 드라이버로 철창을 빼낼 수 있을거야\n");
+									Sleep(delay);
 									printf("\n내가 뭘 할 수 있지..?\n");
 									printf("1. 돌아가기\n");
 									printf("2. 드라이버로 철창을 빼내기\n");
 									printf("3. 로비로 이동\n");
-									printf("내가 지금 뭘 생각하고 있는거야..: 다른 생각은 나지 않아..\n");
+									printf("내가 지금 뭘 생각하고 있는거야..: 소리가 나지 않게 조심히..\n");
 									printf("나는 뭘 해야하지..?: ");
 									scanf("%d", &ingame_choice);
-								}
 
-								if (ingame_choice == 1)
-								{
-									looking_window_free_1 = 0;
-									again_window_free_1 = 1;
-									first_free_1 = 0;
+									while (ingame_choice != 1 && ingame_choice != 2 && ingame_choice != 3)
+									{
+										for (int i = 0; i < 50; i++)
+										{
+											printf("\n");
+										}
+										printf("나: 이 드라이버로 철창을 빼낼 수 있을거야\n");
+										printf("\n내가 뭘 할 수 있지..?\n");
+										printf("1. 돌아가기\n");
+										printf("2. 드라이버로 철창을 빼내기\n");
+										printf("3. 로비로 이동\n");
+										printf("내가 지금 뭘 생각하고 있는거야..: 다른 생각은 나지 않아..\n");
+										printf("나는 뭘 해야하지..?: ");
+										scanf("%d", &ingame_choice);
+									}
+
+									if (ingame_choice == 1)
+									{
+										looking_window_free_1 = 0;
+										again_window_free_1 = 1;
+										first_free_1 = 0;
+									}
+									else if (ingame_choice == 2)
+									{
+										again_window_free_1 = 2;
+									}
+									else if (ingame_choice == 3)
+									{
+										playing = 0;
+									}
 								}
-								else if (ingame_choice == 2)
+								else if (again_window_free_1 == 2)
 								{
-									printf("정상 작동\n");
+									printf("[끼릭 끼릭]\n");
+									Sleep(delay);
+									printf("나: 좋아! 철창을 완전히 때어 냈어\n");
+									Sleep(delay);
+									printf("나: 이제 저기 있는게 무엇인지 확인해 볼까\n");
+									Sleep(delay);
+									printf("\n내가 뭘 할 수 있지..?\n");
+									printf("1. 돌아가기\n");
+									printf("2. 물건 가져오기\n");
+									printf("3. 로비로 이동\n");
+									printf("내가 지금 뭘 생각하고 있는거야..: 쥐덫이라든가.. 위험한 건 아니겠지?\n");
+									printf("나는 뭘 해야하지..?: ");
 									scanf("%d", &ingame_choice);
+
+									while (ingame_choice != 1 && ingame_choice != 2 && ingame_choice != 3)
+									{
+										for (int i = 0; i < 50; i++)
+										{
+											printf("\n");
+
+										}
+										printf("[끼릭 끼릭]\n");
+										printf("나: 좋아! 철창을 완전히 때어 냈어\n");
+										printf("나: 이제 저기 있는게 무엇인지 확인해 볼까\n");
+										printf("\n내가 뭘 할 수 있지..?\n");
+										printf("1. 돌아가기\n");
+										printf("2. 물건 가져오기\n");
+										printf("3. 로비로 이동\n");
+										printf("내가 지금 뭘 생각하고 있는거야..: 다른 생각은 나지 않아..\n");
+										printf("나는 뭘 해야하지..?: ");
+										scanf("%d", &ingame_choice);
+									}
+									if (ingame_choice == 1)
+									{
+										looking_window_free_1 = 0;
+										again_window_free_1 = 3;
+									}
+									else if (ingame_choice == 2)
+									{
+										again_window_free_1 = 4;
+									}
+									else if (ingame_choice == 3)
+									{
+										playing = 0;
+									}
 								}
-								else if (ingame_choice == 3)
+								else if (again_window_free_1 == 3)
 								{
-									playing = 0;
+									printf("나: 저기 있는게 무엇인지 확인해 볼까\n");
+									Sleep(delay);
+									printf("\n내가 뭘 할 수 있지..?\n");
+									printf("1. 돌아가기\n");
+									printf("2. 물건 가져오기\n");
+									printf("3. 로비로 이동\n");
+									printf("내가 지금 뭘 생각하고 있는거야..: 쥐덫이라든가.. 위험한 건 아니겠지?\n");
+									printf("나는 뭘 해야하지..?: ");
+									scanf("%d", &ingame_choice);
+
+									while (ingame_choice != 1 && ingame_choice != 2 && ingame_choice != 3)
+									{
+										for (int i = 0; i < 50; i++)
+										{
+											printf("\n");
+
+										}
+										printf("나: 저기 있는게 무엇인지 확인해 볼까\n");
+										printf("\n내가 뭘 할 수 있지..?\n");
+										printf("1. 돌아가기\n");
+										printf("2. 물건 가져오기\n");
+										printf("3. 로비로 이동\n");
+										printf("내가 지금 뭘 생각하고 있는거야..: 다른 생각은 나지 않아..\n");
+										printf("나는 뭘 해야하지..?: ");
+										scanf("%d", &ingame_choice);
+									}
+									if (ingame_choice == 1)
+									{
+										looking_window_free_1 = 0;
+										again_window_free_1 = 3;
+									}
+									else if (ingame_choice == 2)
+									{
+										again_window_free_1 = 4;
+									}
+									else if (ingame_choice == 3)
+									{
+										playing = 0;
+									}
+								}
+								else if (again_window_free_1 == 4)
+								{
+									printf("나: 이건.. 열쇠랑.. 트럼프 카드인가?\n");
+									Sleep(delay);
+									printf("나: 이게 저 문을 열 수 있는 열쇠인건가?\n");
+									Sleep(delay);
+									printf("나: 트럼프 카드는 스페이드 2야\n");
+									Sleep(delay);
+									printf("\n내가 뭘 할 수 있지..?\n");
+									printf("1. 돌아가기\n");
+									printf("2. 로비로 이동\n");
+									printf("내가 지금 뭘 생각하고 있는거야..: 이제 이곳에는 더 이상 아무것도 없어\n");
+									printf("나는 뭘 해야하지..?: ");
+									scanf("%d", &ingame_choice);
+
+									while (ingame_choice != 1 && ingame_choice != 2)
+									{
+										printf("나: 이건.. 열쇠랑.. 트럼프 카드인가?\n");
+										printf("나: 이게 저 문을 열 수 있는 열쇠인건가?\n");
+										printf("나: 트럼프 카드는 스페이드 2야\n");
+										printf("\n내가 뭘 할 수 있지..?\n");
+										printf("1. 돌아가기\n");
+										printf("2. 로비로 이동\n");
+										printf("내가 지금 뭘 생각하고 있는거야..: 다른 생각은 나지 않아..\n");
+										printf("나는 뭘 해야하지..?: ");
+										scanf("%d", &ingame_choice);
+									}
+
+									if (ingame_choice == 1)
+									{
+										looking_window_free_1 = 0;
+										again_window_free_1 = 5;
+									}
+									else if (ingame_choice == 2)
+									{
+										playing = 0;
+									}
+								}
+								else if (again_window_free_1 == 5)
+								{
+									printf("환풍구에는 더이상 아무것도 없다\n");
+									Sleep(delay);
+									printf("\n내가 뭘 할 수 있지..?\n");
+									printf("1. 돌아가기\n");
+									printf("2. 로비로 이동\n");
+									printf("내가 지금 뭘 생각하고 있는거야..: 이제 이곳에는 더 이상 아무것도 없어\n");
+									printf("나는 뭘 해야하지..?: ");
+									scanf("%d", &ingame_choice);
+
+									while (ingame_choice != 1 && ingame_choice != 2)
+									{
+										for (int i = 0; i < 50; i++)
+										{
+											printf("\n");
+										}
+										printf("환풍구에는 더이상 아무것도 없다\n");
+										printf("\n내가 뭘 할 수 있지..?\n");
+										printf("1. 돌아가기\n");
+										printf("2. 로비로 이동\n");
+										printf("내가 지금 뭘 생각하고 있는거야..: 이제 이곳에는 더 이상 아무것도 없어\n");
+										printf("나는 뭘 해야하지..?: ");
+										scanf("%d", &ingame_choice);
+									}
+
+									if (ingame_choice == 1)
+									{
+										looking_window_free_1 = 0;
+									}
+									else if (ingame_choice == 2)
+									{
+										playing = 0;
+									}
 								}
 							}
 						}
@@ -1069,11 +1230,11 @@ void game_start(void)
 						{
 							if (again_table_free_1 == 0)
 							{
-								printf("탁자 위레는 더이상 물건이 없다\n");
+								printf("탁자 위에는 더이상 물건이 없다\n");
 								Sleep(delay);
 								printf("탁자 아래에는 망치, 드라이버, 집게가 떨어져있다\n");
 								Sleep(delay);
-								printf("그래! ");
+								printf("나: 그래! ");
 							}
 							printf("드라이버가 있으면 철창을 때어낼 수 있을거야\n");
 							Sleep(delay);
@@ -1092,11 +1253,11 @@ void game_start(void)
 								}
 								if (again_table_free_1 == 0)
 								{
-									printf("탁자 위레는 더이상 물건이 없다\n");
+									printf("탁자 위에는 더이상 물건이 없다\n");
 									Sleep(delay);
 									printf("탁자 아래에는 망치, 드라이버, 집게가 떨어져있다\n");
 									Sleep(delay);
-									printf("그래! ");
+									printf("나: 그래! ");
 								}
 								printf("드라이버가 있으면 철창을 때어낼 수 있을거야\n");
 								Sleep(delay);

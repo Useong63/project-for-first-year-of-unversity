@@ -23,7 +23,9 @@ extern int looking_shelf_free_1;
 extern int looking_door_free_1;
 extern int first_free_1;
 extern int again_window_free_1;
+extern int opened_window_1;
 extern int again_table_free_1;
+extern int have_driver;
 extern int again_shelf_free_1;
 extern int again_door_free_1;
 
